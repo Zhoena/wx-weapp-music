@@ -1,0 +1,49 @@
+<!--music.wxml-->
+<view class="container">
+  <!--搜索框-->
+  <include src="/pages/top/top.wxml"/>
+  <!--新歌-->
+  <view class="song-wrap">
+    <navigator class="song-title" url="/pages/message/chat/chat">新歌速递</navigator>
+    <view class="song-new-flex">
+      <view class="song-new-list" wx:for="{{songlist[0]}}" wx:for-item="itemName">
+        <view class="song-img" bindtap="play" data-index="{{index}}" data-arr="{{songlist[0]}}">
+          <image src="{{itemName.pic_big}}" background-size="cover"></image>
+        </view>
+        <view class="song-name">{{itemName.title}}</view>
+        <view class="song-singer">{{itemName.author}}</view>
+      </view>
+    </view>
+    <view class="song-new-flex">
+      <view class="song-new-list" wx:for="{{songlist[1]}}" wx:for-item="itemName">
+        <view class="song-img" bindtap="play" data-index="{{index}}" data-arr="{{songlist[1]}}">
+          <image src="{{itemName.pic_big}}" background-size="cover"></image>
+        </view>
+        <view class="song-name">{{itemName.title}}</view>
+        <view class="song-singer">{{itemName.author}}</view>
+      </view>
+    </view>
+  </view>
+  <!--热歌-->
+  <view class="song-wrap">
+    <navigator class="song-title" url="/pages/message/chat/chat">热门推荐</navigator>
+    <view class="song-new-flex">
+      <view class="song-new-list" wx:for="{{songlisthot[0]}}" wx:for-item="itemName">
+        <view class="song-img" bindtap="play" data-index="{{index}}" data-arr="{{songlisthot[0]}}">
+          <image src="{{itemName.pic_big}}" background-size="cover"></image>
+        </view>
+        <view class="song-name">{{itemName.title}}</view>
+        <view class="song-singer">{{itemName.author}}</view>
+      </view>
+    </view>
+    <view class="song-new-flex">
+      <view class="song-new-list" wx:for="{{songlisthot[1]}}" wx:for-item="itemName">
+        <view class="song-img" bindtap="play" data-index="{{index}}" data-arr="{{songlisthot[1]}}">
+          <image src="{{itemName.pic_big}}" background-size="cover"></image>
+        </view>
+        <view class="song-name">{{itemName.title}}</view>
+        <view class="song-singer">{{itemName.author}}</view>
+      </view>
+    </view>
+  </view>
+</view>

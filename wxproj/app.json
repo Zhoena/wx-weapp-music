@@ -1,0 +1,46 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/top/top",
+    "pages/find/find",
+    "pages/music/music"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#7bced3",
+    "navigationBarTitleText": "我的音乐",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {  
+    "color": "#fff",  
+    "selectedColor": "#0f6e74",  
+    "borderStyle": "white",  
+    "backgroundColor": "#7bced3",  
+    "list": [  
+      {  
+        "text": "我的",  
+        "pagePath": "pages/index/index",  
+        "iconPath": "images/my.png",  
+        "selectedIconPath": "images/my-actived.png"  
+      },  
+      {  
+        "text": "音乐馆",  
+        "pagePath": "pages/music/music",  
+        "iconPath": "images/music.png",  
+        "selectedIconPath": "images/music-actived.png"  
+      },  
+      {  
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "images/find.png",  
+        "selectedIconPath": "images/find-actived.png"  
+      }  
+    ]  
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

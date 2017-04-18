@@ -1,0 +1,78 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom:40rpx;
+  margin-top:20rpx;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 400rpx;
+}
+.user-motto{
+  color: #0f6e74;
+}
+.userinfo-nickname{
+  color:#333;
+  font-size:28rpx;
+}
+
+/*最近播放等分类块*/
+.my-classify{
+  width:100%;
+  display:flex;
+  flex-flow:row nowrap;
+  align-items:flex-start;
+  justify-content:space-around;
+  margin-bottom:20rpx;
+}
+.my-cfsmall{
+  text-align: center;
+  width:100rpx;
+}
+.my-cfsmall image{
+  width:70rpx; height:70rpx;
+}
+.my-cfsmname{
+  font-size:24rpx;
+}
+.my-cfsmnum{
+  font-size:24rpx;
+  color:#0f6e74;
+  margin-top:10rpx;
+}
+
+
+/*电台*/
+.song-tai-list{
+  width:100%;
+  display:flex;
+  flex-flow:row nowrap;
+  align-items:flex-start;
+  justify-content:space-between;
+  margin-bottom: 4rpx;
+}
+
+.song-con{
+  flex-grow: 1;
+  margin:2vw 20rpx;
+}
+.song-tit{
+  height:15vw; line-height:15vw;
+}
+.song-work{
+  height:7vw; line-height:7vw;
+  font-size:28rpx;
+}
+.song-des{
+  height:7vw; line-height:7vw;
+  font-size:28rpx;
+}

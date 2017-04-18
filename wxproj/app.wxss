@@ -1,0 +1,129 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 70rpx 0 100rpx;
+  box-sizing: border-box;
+} 
+
+
+/*搜索*/
+.section{
+  font-size:24rpx;
+  padding:10rpx 20rpx;
+  position:fixed;
+  top:0;
+  width:100%;
+  height:70rpx;
+  box-sizing:border-box;
+  background:#7bced3;
+}
+.section input{
+  padding:6rpx 12rpx;
+  color:#fff;
+  background:#65b0b5;
+  display:inline-block;
+  height:50rpx;
+  min-height:50rpx;
+  line-height: 50rpx;
+  border-radius:8rpx;
+  vertical-align: middle;
+  box-sizing:border-box;
+  width:85%;
+}
+.section .psection{
+  color: #fff;
+}
+.section  button{ 
+  color:#fff;  
+  font-size:24rpx;
+  display:inline-block;
+  height:50rpx;
+  line-height: 50rpx;
+  border:none;
+  vertical-align: middle;
+  width:15%;
+}
+.section .sameinput{
+  width:100%; height:50rpx; line-height: 50rpx; background:#65b0b5;border-radius:8rpx; text-align:center; color:#fff; 
+}
+
+
+/*歌曲模块*/
+.song-title{
+  height:100rpx;line-height:100rpx;text-align:center;font-size:38rpx;
+}
+.song-wrap{
+  width:100%;
+  margin-bottom:20rpx;
+}
+.song-new-flex{
+  display:flex;
+  flex-flow:row nowrap;
+  align-items:flex-start;
+  justify-content:space-between;
+}
+.song-new-list{
+  text-align:center;
+}
+.song-img{
+  width:33vw;
+  height:33vw;
+  overflow:hidden;
+}
+.song-img image{
+  width:100%;
+  height:100%;
+}
+.song-name{
+  font-size:30rpx;
+  height:44rpx; line-height:44rpx;
+  overflow:hidden; text-overflow:ellipsis; white-space: nowrap;
+}
+.song-singer{
+  font-size:24rpx;
+  height:44rpx; line-height:44rpx;
+  overflow:hidden; text-overflow:ellipsis; white-space: nowrap;
+}
+
+
+/*底部*/
+.bottom{
+  width:100%; height:100rpx; background:#e6f9fa; position:fixed; bottom:0;
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content: space-between;
+  align-items:center;
+  padding:0 20rpx;
+  box-sizing:border-box;
+}
+.bottom-img{
+  width:70rpx; height:70rpx; border-radius:50%; overflow:hidden;
+}
+.bottom-img image{
+  width:100%; height:100%; 
+}
+.bottom-info{
+  flex-grow: 1;
+  margin-left:20rpx;
+}
+.bottom-info-title{
+  font-size:24rpx;
+  margin-bottom:10rpx;
+}
+.bottom-info-singer{
+  font-size:24rpx;
+  color:#0f6e74;
+}
+.bottom-btn{
+  width:50rpx; height:50rpx; border-radius:50%; 
+}
+.bottom-btn.play{
+  background:url("/images/play1.png") no-repeat center center; background-size:cover;
+}
+.bottom-btn.pause{
+  background:url("/images/pause1.png") no-repeat center center; background-size:cover;
+}

@@ -1,0 +1,100 @@
+<!--index.wxml-->
+<view class="container">
+  <!--搜索框-->
+  <include src="/pages/top/top.wxml"/>
+  <!--底部-->
+  <include src="/pages/bottom/bottom.wxml"/>
+  <!--个人信息-->
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <!--分类块-->
+  <view class="my-classify">
+    <view class="my-cfsmall">
+      <image src="/images/place1.png"></image>
+      <view class="my-cfsmname">本地音乐</view>
+      <view class="my-cfsmnum">6</view>
+    </view>
+    <view class="my-cfsmall">
+      <image src="/images/download1.png"></image>
+      <view class="my-cfsmname">下载歌曲</view>
+      <view class="my-cfsmnum">6</view>
+    </view>
+    <view class="my-cfsmall">
+      <image src="/images/recent-play1.png"></image>
+      <view class="my-cfsmname">最近播放</view>
+      <view class="my-cfsmnum">6</view>
+    </view>
+  </view>
+  <view class="my-classify">
+    <view class="my-cfsmall">
+      <image src="/images/my-like1.png"></image>
+      <view class="my-cfsmname">我喜欢</view>
+      <view class="my-cfsmnum">6</view>
+    </view>
+    <view class="my-cfsmall">
+      <image src="/images/downloadMV1.png"></image>
+      <view class="my-cfsmname">下载MV</view>
+      <!--<view class="my-cfsmnum">6</view>-->
+    </view>
+    <view class="my-cfsmall">
+      <image src="/images/buy-music1.png"></image>
+      <view class="my-cfsmname">已购音乐</view>
+      <!--<view class="my-cfsmnum">6</view>-->
+    </view>
+  </view>
+  <!--新歌-->
+  <view class="song-wrap">
+    <navigator class="song-title" url="/pages/message/chat/chat">新歌速递</navigator>
+    <view class="song-new-flex">
+      <view class="song-new-list" wx:for="{{songlist[0]}}" wx:for-item="itemName">
+        <view class="song-img" bindtap="play" data-index="{{index}}" data-arr="{{songlist[0]}}">
+          <image src="{{itemName.pic_big}}" background-size="cover"></image>
+        </view>
+        <view class="song-name">{{index}} {{itemName.title}}</view>
+        <view class="song-singer">{{itemName.author}}</view>
+      </view>
+    </view>
+  </view>
+  <!--热歌-->
+  <view class="song-wrap">
+    <navigator class="song-title" url="/pages/message/chat/chat">热门推荐</navigator>
+    <view class="song-new-flex">
+      <view class="song-new-list" wx:for="{{songlisthot[0]}}" wx:for-item="itemName">
+        <view class="song-img" bindtap="play" data-index="{{index}}" data-arr="{{songlisthot[0]}}">
+          <image src="{{itemName.pic_big}}" background-size="cover"></image>
+        </view>
+        <view class="song-name">{{itemName.title}}</view>
+        <view class="song-singer">{{itemName.author}}</view>
+      </view>
+    </view>
+  </view>
+  <!--电台-->
+  <!--<view class="song-wrap">
+    <navigator class="song-title" url="/pages/message/chat/chat">精选电台</navigator>
+    <view class="song-tai-list">
+        <view class="song-img"><image src="{{userInfo.avatarUrl}}" background-size="cover"></image></view>
+        <view class="song-con">
+          <view class="song-tit">80后</view>
+          <view class="song-work">你还要我怎样-薛之谦</view>
+          <view class="song-des">青春都有张相似的脸</view>
+        </view>
+    </view>
+    <view class="song-tai-list">
+        <view class="song-img"><image src="{{userInfo.avatarUrl}}" background-size="cover"></image></view>
+        <view class="song-con">
+          <view class="song-tit">80后</view>
+          <view class="song-work">你还要我怎样-薛之谦</view>
+          <view class="song-des">青春都有张相似的脸</view>
+        </view>
+    </view>
+    
+  </view>-->
+  
+  
+  <!--<view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>-->
+</view>
+

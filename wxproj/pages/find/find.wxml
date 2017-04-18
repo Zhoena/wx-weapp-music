@@ -1,0 +1,9 @@
+<!--find.wxml-->
+<view class="my-qr-info">
+    <view class="my-qrcode">
+        <image src="/images/qrcode.jpg"></image>
+    </view>
+    <text class="my-follow">浏览量：</text>
+</view>
+
+
