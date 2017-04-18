@@ -30,12 +30,13 @@ function getmusicnew(offset,len){
 function getmusichot(offset,len){
     
     var that = this
-    console.log(that)
+    //console.log(that)
     var size = 10
     //如果没有歌曲便宜，默认为0
     if(offset==null){
         offset=0
     }
+    //没几个分为一组
     if(len==null){
         len=3
     }
@@ -60,9 +61,17 @@ function getmusichot(offset,len){
 // 播放
 function play(ev){
     var that = this
-    var obj = ev.currentTarget.dataset.arr[ev.currentTarget.dataset.index]
-    //console.log(obj)
+    // 当前列表中播放索引
+    var playindex = ev.currentTarget.dataset.index
     var url = ""
+    // 设置data数据
+    that.setData({
+        // 设置当前播放信息
+        playInfo: ev.currentTarget.dataset.arr,
+        // 设置当前播放索引
+        playindex: playindex
+    })
+    var obj = that.data.playInfo
     wx.request({
         url: 'https://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.song.play&songid='+obj.song_id,
         header: {
@@ -75,15 +84,40 @@ function play(ev){
                 name: obj.title,
                 singer:obj.author,
                 coverImgUrl: obj.pic_big,
-                complete: function (obj) {
-                  //console.log(res)
-                },
-                success:function(obj){
+                success:function(e){
                   that.setData({
-                    bottomstatus:true
+                    // 设置底部显示隐藏状态
+                    bottomstatus:true,
+                    // 设置播放按钮播放暂停状态
+                    onpause:false,
                   })
                 }
             })
+            
+            
+            //获取后台音乐播放状态
+            //getMusicStauts.call(that,obj.song_id)
+            // wx.seekBackgroundAudio({
+            //     position: that.data.playTime
+            // })
+            wx.getBackgroundAudioPlayerState({
+                success: function(res) {
+                    var currentPosition = that.data.playTime;
+                    //id不为空，即为点击播放按钮
+                    if(that.data.songId!=obj.song_id){//若不是同一首歌，播放开始时间为0；并把当前歌曲id赋值给data以便下次比较
+                        currentPosition = 0
+                        that.setData({
+                            songId: obj.song_id
+                        })
+                    }
+                    console.log(currentPosition)
+                    wx.seekBackgroundAudio({
+                        position: currentPosition
+                    })
+                }
+            })
+            
+           
         }
     })
 }
@@ -91,35 +125,68 @@ function play(ev){
 // 暂停
 function pause(ev){
     var that = this;
-    console.log(that.data.onoff)
-    
-    wx.pauseBackgroundAudio()
-    that.setData({
-        onoff:!that.data.onoff
+    //console.log(that.data.onpause)
+    wx.pauseBackgroundAudio({
+        success:function(){
+            that.setData({
+                onpause:true
+            })
+        }
     })
-}
-
-function getstatus(ev){
+    
+    //获取后台音乐播放状态
+    //getMusicStauts.call(that)
     wx.getBackgroundAudioPlayerState({
         success: function(res) {
-            var status = res.status
-            var dataUrl = res.dataUrl
             var currentPosition = res.currentPosition
-            var duration = res.duration
-            var downloadPercent = res.downloadPercent
-            console.log(status+"============="+dataUrl+"============="+currentPosition+"=============="+duration+"==========="+downloadPercent)
+            that.setData({
+                playTime: currentPosition
+            })
+            console.log(currentPosition)
         }
     })
     
 }
+
+//获取后台音乐播放状态
+function getMusicStauts(id){
+    var that = this
+    wx.getBackgroundAudioPlayerState({
+        success: function(res) {
+            var status = res.status
+            var currentPosition = res.currentPosition
+            //id不为空，即为点击播放按钮
+            if(id!=null){//id不为空，即为点击播放按钮，此时需判断是否播放同一首歌
+                if(that.data.songId!=id){//若不是同一首歌，播放开始时间为0；并把当前歌曲id赋值给data以便下次比较
+                    currentPosition = 0
+                    that.setData({
+                        songId: id
+                    })
+                }else{
+                    currentPosition = that.data.playTime
+                }
+                console.log("========")
+            }
+            that.setData({
+                playTime: currentPosition
+            })
+            console.log(currentPosition)
+        }
+    })
+}
+
+
+
+
+
 
 
 
 module.exports = {
   getmusicnew: getmusicnew,
   getmusichot: getmusichot,
-  play:play,
-  pause:pause,
-  getstatus:getstatus
+  play: play,
+  pause: pause,
+  getMusicStauts: getMusicStauts
 }
 

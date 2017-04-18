@@ -49,7 +49,7 @@
     <navigator class="song-title" url="/pages/message/chat/chat">新歌速递</navigator>
     <view class="song-new-flex">
       <view class="song-new-list" wx:for="{{songlist[0]}}" wx:for-item="itemName">
-        <view class="song-img" bindtap="play" data-index="{{index}}" data-arr="{{songlist[0]}}">
+        <view class="song-img" bindtap="play" data-index="{{index}}" data-arr="{{songlist[0][index]}}">
           <image src="{{itemName.pic_big}}" background-size="cover"></image>
         </view>
         <view class="song-name">{{index}} {{itemName.title}}</view>
@@ -62,7 +62,7 @@
     <navigator class="song-title" url="/pages/message/chat/chat">热门推荐</navigator>
     <view class="song-new-flex">
       <view class="song-new-list" wx:for="{{songlisthot[0]}}" wx:for-item="itemName">
-        <view class="song-img" bindtap="play" data-index="{{index}}" data-arr="{{songlisthot[0]}}">
+        <view class="song-img" bindtap="play" data-index="{{index}}" data-arr="{{songlisthot[0][index]}}">
           <image src="{{itemName.pic_big}}" background-size="cover"></image>
         </view>
         <view class="song-name">{{itemName.title}}</view>

@@ -1,10 +1,10 @@
 <!--bottom.wxml-->
 <view class="bottom" wx:if="{{bottomstatus}}">
-  <view class="bottom-img"><image src="{{userInfo.avatarUrl}}"></image></view>
+  <view class="bottom-img"><image src="{{playInfo.pic_small}}"></image></view>
   <view class="bottom-info">
-    <view class="bottom-info-title">她说</view>
-    <view class="bottom-info-singer">林俊杰</view>
+    <view class="bottom-info-title">{{playInfo.title}}</view>
+    <view class="bottom-info-singer">{{playInfo.author}}</view>
   </view>
-  <view class="bottom-btn play" wx:if="{{onoff}}" bindtap="getstatus"></view>
-  <view class="bottom-btn pause" wx:else bindtap="pause"></view>
+  <view class="bottom-btn play" wx:if="{{onpause==true}}" playindex="{playindex}" bindtap="play" data-arr="{{playInfo}}"></view>
+  <view class="bottom-btn pause" wx:else bindtap="pause"  playindex="{playindex}"></view>
 </view>
