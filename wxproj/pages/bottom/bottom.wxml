@@ -5,6 +5,6 @@
     <view class="bottom-info-title">{{playInfo.title}}</view>
     <view class="bottom-info-singer">{{playInfo.author}}</view>
   </view>
-  <view class="bottom-btn play" wx:if="{{onpause==true}}" playindex="{playindex}" bindtap="play" data-arr="{{playInfo}}"></view>
+  <view class="bottom-btn play" wx:if="{{onpause==true}}" playindex="{playindex}" bindtap="playbottom" data-arr="{{playInfo}}"></view>
   <view class="bottom-btn pause" wx:else bindtap="pause"  playindex="{playindex}"></view>
 </view>

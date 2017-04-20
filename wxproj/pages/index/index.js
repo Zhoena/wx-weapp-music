@@ -5,29 +5,17 @@ var music = require('../../comm/comm')
 Page({
   data: {
     motto: '欢迎来到我的音乐',
-    userInfo: {},
-    // 新歌
-    songlist:[],
-    // 热歌
-    songlisthot:[],
-    // 底部状态
-    bottomstatus: false,
-    //暂停播放按钮
-    onpause: false,
-    //当前播放歌曲索引
-    playindex: "",
-    //当前播放歌曲信息
-    playInfo: {},
-    //播放时长
-    playTime: 0,
-    //歌曲id
-    songId:""
+    userInfo: {}
   },
   //事件处理函数
   //播放
   play:function(ev){
     var that = this;
     music.play.call(that,ev);
+  },
+  playbottom:function(ev){
+    var that = this;
+    music.playbottom.call(that,ev);
   },
   //暂停
   pause:function(ev){
@@ -58,19 +46,28 @@ Page({
     //监听音乐暂停
     wx.onBackgroundAudioPause(function() {
       console.log('暂停')
-      //music.getMusicStauts.call(that)
     })
  
     //监听音乐停止
     wx.onBackgroundAudioStop(function() {
       console.log('停止')
-      //music.getMusicStauts.call(that)
+      var info= that.data.playInfoMp3
+      //单曲循环
+      music.singlePlay(info)
+      
     })
     
     
   },
   onShow: function() {
     // Do something when page show.
+    var that = this;
+    console.log(that.data.onpause)
+    console.log(app.globalData.onpause)
+    //监听音乐播放
+    wx.onBackgroundAudioPlay(function() {
+      
+    })
   }
 })
 

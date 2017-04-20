@@ -25,6 +25,22 @@ App({
     }
   },
   globalData:{
-    userInfo:null
+    userInfo:null,
+    // 新歌
+    songlist:[],
+    // 热歌
+    songlisthot:[],
+    // 底部状态
+    bottomstatus: false,
+    // 暂停播放按钮
+    onpause: false,
+    // 当前播放歌曲信息
+    playInfo: {},
+    //带链接的歌曲信息
+    playInfoMp3: {},
+    // 播放时长
+    playTime: 0,
+    // 歌曲id
+    songId:""
   }
 })
