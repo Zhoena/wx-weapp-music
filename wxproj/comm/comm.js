@@ -168,6 +168,7 @@ function pause(ev){
     })
     
     //获取后台音乐播放状态
+    //getMusicStauts.call(that)
     wx.getBackgroundAudioPlayerState({
         success: function(res) {
             var currentPosition = res.currentPosition

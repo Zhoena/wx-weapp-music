@@ -38,8 +38,15 @@ Page({
   },
   onShow: function() {
     var that = this;
-    console.log(that.data.onpause)
-    console.log(that.data.playInfo)
+    console.log(getApp().globalData.bottomstatus)
+    console.log(getApp().globalData.onpause)
+    //监听音乐播放
+  //   wx.onBackgroundAudioPlay(function() {
+  //     getApp().globalData.onpause = true
+  //   })
+    if(getApp().globalData.onpause==true){
+      getApp().globalData.bottomstatus = true
+    }
   }
 })
 

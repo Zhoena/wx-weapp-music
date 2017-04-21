@@ -53,7 +53,7 @@ Page({
       console.log('停止')
       var info= that.data.playInfoMp3
       //单曲循环
-      music.singlePlay(info)
+      //music.singlePlay(info)
       
     })
     
@@ -62,12 +62,16 @@ Page({
   onShow: function() {
     // Do something when page show.
     var that = this;
-    console.log(that.data.onpause)
+    console.log(app.globalData.bottomstatus)
     console.log(app.globalData.onpause)
     //监听音乐播放
-    wx.onBackgroundAudioPlay(function() {
-      
-    })
+  //   wx.onBackgroundAudioPlay(function() {
+  //     app.globalData.onpause = true
+  //     app.globalData.bottomstatus = true
+  //   })
+    if(app.globalData.onpause==true){
+      app.globalData.bottomstatus = true
+    }
   }
 })
 
